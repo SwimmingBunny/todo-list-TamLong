@@ -1,0 +1,115 @@
+.app {
+  border: 1px solid black;
+}
+/* header */
+.header {
+  grid-area: header;
+  background-color: #72f7d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__input {
+  display: flex;
+  width: 60%;
+  margin: 20px;
+}
+.header__btn {
+  border: 1px solid black;
+  margin: 0 10px;
+  background-color: transparent;
+  color: black;
+}
+.header__iput--btn {
+  min-width: 150px;
+  margin: 0 10px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+}
+/*  */
+.main {
+  grid-area: main;
+}
+/* sidebar */
+.sideBar {
+  grid-area: sideBar;
+  display: flex;
+  flex-direction: column;
+  background-color: #1b84b3;
+  min-height: 80vh;
+}
+.siderBar__btn {
+  background-color: transparent;
+  margin: 5px;
+  color: black;
+  border: 1px black solid;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "sideBar main main main";
+}
+
+.main__alltask-render {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+.main__pagi {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+/* Add task */
+.main__addtask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main__task {
+  width: 50%;
+}
+.main__task-inline {
+  display: flex;
+  margin: 20px 020px;
+}
+.main__task-inline input {
+  flex: 1;
+}
+.main__task-span {
+  min-width: 100px;
+}
+
+.main__task-radio {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.main__task-btn {
+  display: flex;
+  justify-content: center;
+}
+/* todoitem */
+.main__todo {
+  display: flex;
+  flex-direction: column;
+  border: 1px #40a9ff solid;
+  padding: 5px;
+  max-width: 300px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main__alltask {
+  min-height: 80vh;
+  padding: 10px;
+}
+.main__todo-des {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.main__todo-hr {
+  border: 1px #40a9ff solid;
+  min-width: 90%;
+}
