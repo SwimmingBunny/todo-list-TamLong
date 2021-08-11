@@ -1,13 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Header from "./layout/Header";
-import Body from "./layout/Body";
+import Main from "./layout/Main";
 import "./Css.css";
 function App() {
   return (
     <div className="app">
-      <Body />
+      <Main />
     </div>
   );
 }

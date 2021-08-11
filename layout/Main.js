@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 import Alltask from "../component/Alltask";
 
-const Body = () => {
+const Main = () => {
   const [listData, setListData] = React.useState([]);
   const [value, setValue] = React.useState("");
   const [textSearch, setTextSearch] = React.useState("");
@@ -44,7 +44,7 @@ const Body = () => {
             <Input
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              placeholder="Type Some Thing"
+              placeholder="Search your title"
             />
             <Button
               onClick={onSearch}
@@ -120,4 +120,4 @@ const Body = () => {
     </BrowserRouter>
   );
 };
-export default Body;
+export default Main;

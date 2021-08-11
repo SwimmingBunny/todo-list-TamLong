@@ -48,23 +48,27 @@ const TodoDetail = (props) => {
     }
   };
   const onSave = () => {
-    const newData = props.listData.map((vl, idx) => {
-      if (idx === +id) {
-        vl.title = newTitle;
-        vl.name = newName;
-        vl.script = newScript;
-        vl.status = getStatus(radioValue);
-        vl.date = newDate;
+    if (newTitle === "" || newName === "" || newScript === "") {
+      alert("Your are missing Title, Name or Script");
+    } else {
+      const newData = props.listData.map((vl, idx) => {
+        if (idx === +id) {
+          vl.title = newTitle;
+          vl.name = newName;
+          vl.script = newScript;
+          vl.status = getStatus(radioValue);
+          vl.date = newDate;
+        }
+
+        return vl;
+      });
+      localStorage.setItem(props.taskList, JSON.stringify(newData));
+
+      props.setListData(newData);
+      const confirm = window.confirm("Are you sure to save ?");
+      if (confirm) {
+        history.push("/todos");
       }
-
-      return vl;
-    });
-    localStorage.setItem(props.taskList, JSON.stringify(newData));
-
-    props.setListData(newData);
-    const confirm = window.confirm("Are you sure to save");
-    if (confirm) {
-      history.push("/todos");
     }
   };
 
@@ -106,7 +110,8 @@ const TodoDetail = (props) => {
               <span className="main__task-span"> Create date:</span>
               <DatePicker
                 value={newDate}
-                value={moment(newDate, "YYYY/MM/DD")}
+                value={moment(newDate, "DD/MM/YYYY")}
+                format={"DD/MM/YYYY"}
                 onChange={(date, dateString) => {
                   setNewDate(dateString);
                   console.log(date, dateString);
@@ -130,6 +135,7 @@ const TodoDetail = (props) => {
                   setNewTitle(detail?.title);
                   setNewName(detail?.name);
                   setNewScript(detail?.script);
+                  setNewDate(detail?.date);
                 }}
               >
                 Reset

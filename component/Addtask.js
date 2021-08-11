@@ -19,21 +19,23 @@ const Addtask = (props) => {
   }, []);
 
   const handleListData = () => {
-    console.log("alo");
-    console.log(history);
-    const list = [
-      {
-        title: title,
-        name: name,
-        script: script,
-        date: deadline,
-        status: "new",
-      },
-      ...props.listData,
-    ];
-    localStorage.setItem(props.taskList, JSON.stringify(list));
-    props.setListData(list);
-    history.push("/todos");
+    if (title === "" || name === "" || script === "") {
+      alert("Your are missing Title, Name or Script");
+    } else {
+      const list = [
+        {
+          title: title,
+          name: name,
+          script: script,
+          date: deadline,
+          status: "new",
+        },
+        ...props.listData,
+      ];
+      localStorage.setItem(props.taskList, JSON.stringify(list));
+      props.setListData(list);
+      history.push("/todos");
+    }
   };
   return (
     <div className="main__addtask">
